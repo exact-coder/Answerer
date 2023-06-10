@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+
+  <title>Answerer AI</title>
+
+  <link rel="stylesheet" href="{% static 'landing/css/maicons.css' %}">
+
+  <link rel="stylesheet" href="{% static 'landing/css/bootstrap.css' %}">
+
+  <link rel="stylesheet" href="{% static 'landing/vendor/animate/animate.css' %}">
+
+  <link rel="stylesheet" href="{% static 'landing/css/theme.css' %}">
+
+</head>
+<body>
+  {% include  'html/header.html' %}
+    
+{% block content %}
+
+{% endblock content %}
+{% include 'html/footer.html' %}
+
+<script src="{% static 'landing/js/jquery-3.5.1.min.js' %}"></script>
+
+<script src="{% static 'landing/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'landing/js/google-maps.js' %}"></script>
+
+<script src="{% static 'landing/vendor/wow/wow.min.js' %}"></script>
+
+<script src="{% static 'landing/js/theme.js' %}"></script>
+    
+</body>
+</html>
