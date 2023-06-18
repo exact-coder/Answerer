@@ -5,8 +5,8 @@ from django.shortcuts import render
 def home(request):
     return render(request,"landing/pages/home.html")
 
-def about(request):
-    return render(request,"landing/pages/about.html")
+def pricing(request):
+    return render(request,"landing/pages/pricing.html")
 
 def blog(request):
     return render(request,"landing/pages/blog.html")
