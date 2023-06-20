@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # custom app
     'landing',
+    'authorization',
 ]
 
 MIDDLEWARE = [
