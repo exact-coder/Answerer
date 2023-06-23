@@ -7,7 +7,29 @@ from django.contrib import messages
 def dashboard(request):
     return render(request,'authorization/pages/dashboard.html')
 
+def user_profile(request):
+    return render(request,'authorization/pages/user_profile.html')
+
+def user_profile_edit(request):
+    return render(request,'authorization/pages/user_profile_edit.html')
+
 def auth_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = auth.authenticate(username=username,password=password)
+
+        if user :
+            auth.login(request,user)
+            return redirect('user_profile')
+        messages.error(request,"You give Wrong Information or User does not Exist!!")
+        return redirect('auth_login')
+
+            
+
+
+
     return render(request, 'authorization/pages/auth_login.html')
 
 def auth_register(request):
