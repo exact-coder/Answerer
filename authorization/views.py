@@ -1,18 +1,37 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 
 # Create your views here.
 
+def anonymous_required(function = None, redirect_url = 'home'):
+
+    if not redirect_url:
+        redirect_url =redirect_url
+    
+    actual_decorator = user_passes_test(
+        lambda u: u.is_anonymous,
+        login_url= redirect_url
+    )
+
+    if function:
+        return actual_decorator(function)
+    return actual_decorator
+
+@login_required(login_url="auth_login")
 def dashboard(request):
     return render(request,'authorization/pages/dashboard.html')
 
+@login_required(login_url="auth_login")
 def user_profile(request):
     return render(request,'authorization/pages/user_profile.html')
 
+@login_required(login_url="auth_login")
 def user_profile_edit(request):
     return render(request,'authorization/pages/user_profile_edit.html')
 
+@anonymous_required
 def auth_login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -26,12 +45,10 @@ def auth_login(request):
         messages.error(request,"You give Wrong Information or User does not Exist!!")
         return redirect('auth_login')
 
-            
-
-
-
     return render(request, 'authorization/pages/auth_login.html')
 
+
+@anonymous_required
 def auth_register(request):
 
     if request.method == 'POST':
