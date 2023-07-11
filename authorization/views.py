@@ -73,3 +73,9 @@ def auth_register(request):
         auth.login(request,user)
         return redirect('home')
     return render(request, 'authorization/pages/auth_register.html')
+
+@login_required
+def auth_logout(request):
+    auth.logout(request)
+    messages.success(request,"Log Out Successfully")
+    return redirect('auth_login')
