@@ -19,17 +19,6 @@ def anonymous_required(function = None, redirect_url = 'home'):
         return actual_decorator(function)
     return actual_decorator
 
-@login_required(login_url="auth_login")
-def dashboard(request):
-    return render(request,'authorization/pages/dashboard.html')
-
-@login_required(login_url="auth_login")
-def user_profile(request):
-    return render(request,'authorization/pages/user_profile.html')
-
-@login_required(login_url="auth_login")
-def user_profile_edit(request):
-    return render(request,'authorization/pages/user_profile_edit.html')
 
 @anonymous_required
 def auth_login(request):

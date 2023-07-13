@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # custom app
     'landing',
     'authorization',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
