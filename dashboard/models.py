@@ -16,6 +16,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, verbose_name=_("user"), on_delete=models.CASCADE)
     position_title = models.CharField(_("Position Title"), max_length=50)
     call = models.IntegerField(_("Call"),max_length=16)
+    country = models.CharField(_("Country"), max_length=50)
     address = models.CharField(_("Address"), max_length=200)
     description = models.TextField(_("Descrive Yourself's"))
     profileImage = ResizedImageField(size=[200,200],quality=80, upload_to="profile/")

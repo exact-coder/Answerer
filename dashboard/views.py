@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm
+from .models import Profile
 
 # Create your views here.
 
@@ -11,6 +13,8 @@ def dashboard(request):
 
 @login_required(login_url="auth_login")
 def user_profile(request):
+    context = {}
+    form = ProfileForm()
     return render(request,'authorization/pages/user_profile.html')
 
 @login_required(login_url="auth_login")
